@@ -22,7 +22,7 @@ export class RealTimeService {
     this.socket.on("task:created", onTaskCreated);
   }
 
-  connectDeleteTask(onTaskDeleted: () => void){
+  connectDeleteTask(onTaskDeleted: () => void): void {
     if(this.socket?.connected){
       return;
     }
@@ -38,7 +38,7 @@ export class RealTimeService {
     this.socket.on("task:deleted", onTaskDeleted);
   }
 
-  connectUpdateTask(onTaskUpdated: () => void){
+  connectUpdateTask(onTaskUpdated: () => void): void {
     if(this.socket?.connected){
       return;
     }
@@ -53,10 +53,12 @@ export class RealTimeService {
 
     this.socket.on("task:updated", onTaskUpdated);
   }
-  
+
   disconnect(): void {
     this.socket?.disconnect();
     this.socket?.off("task:created");
+    this.socket?.off("task:deleted");
+    this.socket?.off("task:updated");
   }
 }
 
