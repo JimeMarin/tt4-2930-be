@@ -27,4 +27,24 @@ const emitTaskCreated = (task) => {
     })
 }
 
-module.exports = {initSocket, emitTaskCreated};
+const emitTaskUpdated = (task) => {
+    if(!io){
+        return;
+    }
+    socket.emit("task:updated", {
+        message: "Websocket connection established",
+        data: { task }
+    })
+}
+
+const emitTaskDeleted = (task) => {
+    if(!io){
+        return;
+    }
+    socket.emit("task:deleted", {
+        message: "Websocket connection established",
+        data: { task }
+    })
+}
+
+module.exports = {initSocket, emitTaskCreated, emitTaskUpdated, emitTaskDeleted};
