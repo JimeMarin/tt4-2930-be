@@ -21,7 +21,7 @@ const emitTaskCreated = (task) => {
     if(!io){
         return;
     }
-    socket.emit("task:created", {
+    io.emit("task:created", {
         message: "Websocket connection established",
         data: { task }
     })
@@ -31,7 +31,7 @@ const emitTaskUpdated = (task) => {
     if(!io){
         return;
     }
-    socket.emit("task:updated", {
+    io.emit("task:updated", {
         message: "Websocket connection established",
         data: { task }
     })
@@ -41,7 +41,7 @@ const emitTaskDeleted = (task) => {
     if(!io){
         return;
     }
-    socket.emit("task:deleted", {
+    io.emit("task:deleted", {
         message: "Websocket connection established",
         data: { task }
     })
