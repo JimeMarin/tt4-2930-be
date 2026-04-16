@@ -17,7 +17,7 @@ const startServer = async () => {
         const server = http.createServer(app);
         initSocket(server);
 
-        app.listen(PORT, ()=>{
+        server.listen(PORT, ()=>{
             console.log("Server is running...");
         });
     }catch(error){
