@@ -44,7 +44,9 @@ export class DashboardPageComponent {
   });
 
   constructor() {
-    this.realtimeService.connect(() => this.refreshTasks()); //this is to track the listener
+    this.realtimeService.connectCreateTask(() => this.refreshTasks());
+    this.realtimeService.connectUpdateTask(() => this.refreshTasks());
+    this.realtimeService.connectDeleteTask(() => this.refreshTasks()); //this is to track the listener
     this.destroyRef.onDestroy(() => this.realtimeService.disconnect());
     this.loadDashboard();
   }
