@@ -32,7 +32,7 @@ const emitTaskUpdated = (task) => {
         return;
     }
     io.emit("task:updated", {
-        message: "Websocket connection established",
+        message: "Task updated",
         data: { task }
     })
 }
@@ -42,7 +42,7 @@ const emitTaskDeleted = (task) => {
         return;
     }
     io.emit("task:deleted", {
-        message: "Websocket connection established",
+        message: "Task deleted",
         data: { task }
     })
 }
